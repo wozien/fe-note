@@ -10,3 +10,4 @@
 [JS 对象中的浅拷贝和深拷贝](https://www.inoob.xyz/posts/7777e26c/)<br>
 [JS 运行机制之 Event Loop](https://www.inoob.xyz/posts/d33ba0d2/)<br>
 [Promise 实现原理](https://www.inoob.xyz/posts/9c8b9140/)<br>
+[实现EventEmitter](https://www.inoob.xyz/posts/ef2c15cd/)<br>
