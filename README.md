@@ -17,3 +17,4 @@
 ## ES6 系列
 
 [let和const声明](https://www.inoob.xyz/posts/4980a7e3/)
+[字符串模版](https://www.inoob.xyz/posts/6e27aa72/)
