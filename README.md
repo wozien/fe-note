@@ -10,11 +10,12 @@
 [JS 对象中的浅拷贝和深拷贝](https://www.inoob.xyz/posts/7777e26c/)<br>
 [JS 运行机制之 Event Loop](https://www.inoob.xyz/posts/d33ba0d2/)<br>
 [Promise 实现原理](https://www.inoob.xyz/posts/9c8b9140/)<br>
-[实现EventEmitter](https://www.inoob.xyz/posts/ef2c15cd/)<br>
+[实现 EventEmitter](https://www.inoob.xyz/posts/ef2c15cd/)<br>
 [数组的去重，扁平和最值](https://www.inoob.xyz/posts/1f16d045/)<br>
 [函数的柯里化](https://www.inoob.xyz/posts/4e8702a6/)
 
 ## ES6 系列
 
-[let和const声明](https://www.inoob.xyz/posts/4980a7e3/)<br>
-[字符串模版](https://www.inoob.xyz/posts/6e27aa72/)
+[let 和 const 声明](https://www.inoob.xyz/posts/4980a7e3/)<br>
+[字符串模版](https://www.inoob.xyz/posts/6e27aa72/)<br>
+[函数扩展](https://www.inoob.xyz/posts/7a03402b/)
