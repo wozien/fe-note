@@ -16,7 +16,8 @@
 
 ## ES6 系列
 
-[let 和 const 声明](https://www.inoob.xyz/posts/4980a7e3/)<br>
-[字符串模版](https://www.inoob.xyz/posts/6e27aa72/)<br>
-[函数扩展](https://www.inoob.xyz/posts/7a03402b/)<br>
-[对象扩展](https://www.inoob.xyz/posts/3be0ae87/)
+[es6-let 和 const](https://www.inoob.xyz/posts/4980a7e3/)<br>
+[es6-模版字符串](https://www.inoob.xyz/posts/6e27aa72/)<br>
+[es6-函数扩展](https://www.inoob.xyz/posts/7a03402b/)<br>
+[es6-对象扩展](https://www.inoob.xyz/posts/3be0ae87/)<br>
+[es6-对象和数组解构](https://www.inoob.xyz/posts/2eca66cf/)
