@@ -23,4 +23,5 @@
 [es6-对象和数组解构](https://www.inoob.xyz/posts/2eca66cf/)<br>
 [es6-Symbol 类型](https://www.inoob.xyz/posts/140bf504/)<br>
 [es6-认识 Set 和 Map](https://www.inoob.xyz/posts/abd7aa78/)<br>
-[es6-迭代器 Iterator](https://www.inoob.xyz/posts/eb6ae864/)
+[es6-迭代器 Iterator](https://www.inoob.xyz/posts/eb6ae864/)<br>
+[es6-生成器 Generator](https://www.inoob.xyz/posts/33ce65af/)
