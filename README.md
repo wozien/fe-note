@@ -26,4 +26,5 @@
 [es6-迭代器 Iterator](https://www.inoob.xyz/posts/eb6ae864/)<br>
 [es6-生成器 Generator](https://www.inoob.xyz/posts/33ce65af/)<br>
 [es6-Promise 与异步编程](https://www.inoob.xyz/posts/17436677/)<br>
-[es6-async 函数](https://www.inoob.xyz/posts/7e1271dc/)
+[es6-async 函数](https://www.inoob.xyz/posts/7e1271dc/)<br>
+[es6-代理 Proxy](https://www.inoob.xyz/posts/f7102411/)
