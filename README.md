@@ -42,3 +42,7 @@
 [es6-Promise 与异步编程](https://www.inoob.xyz/posts/17436677/)<br>
 [es6-async 函数](https://www.inoob.xyz/posts/7e1271dc/)<br>
 [es6-代理 Proxy](https://www.inoob.xyz/posts/f7102411/)
+
+## Vue 系列
+
+[VirtualDOM 的简单实现](https://www.inoob.xyz/posts/65181b95/)<br>
