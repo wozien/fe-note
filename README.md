@@ -26,7 +26,8 @@
 [JS 专题-Promise 实现原理](https://www.inoob.xyz/posts/9c8b9140/)<br>
 [JS 专题-实现 EventEmitter](https://www.inoob.xyz/posts/ef2c15cd/)<br>
 [JS 专题-数组的去重，扁平和最值](https://www.inoob.xyz/posts/1f16d045/)<br>
-[JS 专题-函数的柯里化](https://www.inoob.xyz/posts/4e8702a6/)
+[JS 专题-函数的柯里化](https://www.inoob.xyz/posts/4e8702a6/)<br>
+[JS 专题-模拟实现 instanceof](https://www.inoob.xyz/posts/4e8702a6/)
 
 ## ES6 系列
 
