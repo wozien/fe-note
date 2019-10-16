@@ -6,11 +6,11 @@
 
 ## JS 基础系列
 
-[JS 基础-执行上下文](https://www.inoob.xyz/posts/d33ba0d2/)<br>
-[JS 基础-作用域链](https://www.inoob.xyz/posts/d33ba0d2/)<br>
+[JS 基础-执行上下文](https://www.inoob.xyz/posts/85155d14/)<br>
+[JS 基础-作用域链](https://www.inoob.xyz/posts/c669f65/)<br>
+[JS 基础-this](https://www.inoob.xyz/posts/d33ba0d2/)<br>
 [JS 基础-闭包](https://www.inoob.xyz/posts/d33ba0d2/)<br>
 [JS 基础-对象原型及原型链](https://www.inoob.xyz/posts/d33ba0d2/)<br>
-[JS 基础-this](https://www.inoob.xyz/posts/d33ba0d2/)<br>
 [JS 基础-正则表达式](https://www.inoob.xyz/posts/d33ba0d2/)<br>
 [JS 基础-事件机制](https://www.inoob.xyz/posts/d33ba0d2/)<br>
 [JS 基础-DOM](https://www.inoob.xyz/posts/d33ba0d2/)<br>
@@ -27,7 +27,8 @@
 [JS 专题-实现 EventEmitter](https://www.inoob.xyz/posts/ef2c15cd/)<br>
 [JS 专题-数组的去重，扁平和最值](https://www.inoob.xyz/posts/1f16d045/)<br>
 [JS 专题-函数的柯里化](https://www.inoob.xyz/posts/4e8702a6/)<br>
-[JS 专题-模拟实现 instanceof](https://www.inoob.xyz/posts/4e8702a6/)
+[JS 专题-模拟实现 instanceof](https://www.inoob.xyz/posts/4e8702a6/)<br>
+[JS 专题-实现 call,apply 和 bind](https://www.inoob.xyz/posts/404f47c3/)
 
 ## ES6 系列
 
