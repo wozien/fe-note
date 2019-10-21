@@ -8,7 +8,6 @@
 
 [JS 基础-执行上下文](https://www.inoob.xyz/posts/85155d14/)<br>
 [JS 基础-作用域链](https://www.inoob.xyz/posts/c669f65/)<br>
-[JS 基础-this](https://www.inoob.xyz/posts/d33ba0d2/)<br>
 [JS 基础-闭包](https://www.inoob.xyz/posts/a28503ea/)<br>
 [JS 基础-对象原型及原型链](https://www.inoob.xyz/posts/d33ba0d2/)<br>
 [JS 基础-正则表达式](https://www.inoob.xyz/posts/d33ba0d2/)<br>
