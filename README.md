@@ -47,3 +47,4 @@
 ## Vue 系列
 
 [VirtualDOM 的简单实现](https://www.inoob.xyz/posts/65181b95/)<br>
+[Vue 源码-new Vue()发生了啥](https://www.inoob.xyz/posts/65181b95/)<br>
