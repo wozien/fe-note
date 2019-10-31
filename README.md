@@ -15,7 +15,7 @@
 [JS 基础-DOM](https://www.inoob.xyz/posts/d33ba0d2/)<br>
 [JS 基础-BOM](https://www.inoob.xyz/posts/d33ba0d2/)<br>
 [JS 基础-Ajax](https://www.inoob.xyz/posts/d33ba0d2/)<br>
-[JS 基础-内存管理](https://www.inoob.xyz/posts/d33ba0d2/)<br>
+[JS 基础-内存管理](https://www.inoob.xyz/posts/f616d4a/)<br>
 [JS 基础-事件循环 Event Loop](https://www.inoob.xyz/posts/d33ba0d2/)<br>
 
 ## JS 专题系列
@@ -51,5 +51,5 @@
 [Vue 源码-组件化](https://www.inoob.xyz/posts/786ee8b8/)<br>
 [Vue 源码-响应式原理](https://www.inoob.xyz/posts/1d890dd2/)<br>
 [Vue 源码-watch 和 computed](https://www.inoob.xyz/posts/c30b93b3/)<br>
-[Vue 源码-组件更新](https://www.inoob.xyz/posts/65181b95/)<br>
+[Vue 源码-组件更新](https://www.inoob.xyz/posts/17db2ff2/)<br>
 [Vue 源码-事件机制](https://www.inoob.xyz/posts/65181b95/)<br>
