@@ -53,3 +53,4 @@
 [Vue 源码-watch 和 computed](https://www.inoob.xyz/posts/c30b93b3/)<br>
 [Vue 源码-组件更新](https://www.inoob.xyz/posts/17db2ff2/)<br>
 [Vue 源码-事件 event](https://www.inoob.xyz/posts/41428e1e/)<br>
+[Vue 源码-v-model](https://www.inoob.xyz/posts/a2192891/)<br>
