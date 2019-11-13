@@ -55,6 +55,7 @@
 [Vue 源码-事件 event](https://www.inoob.xyz/posts/41428e1e/)<br>
 [Vue 源码-v-model](https://www.inoob.xyz/posts/a2192891/)<br>
 [Vue 源码-slot](https://www.inoob.xyz/posts/2ad031ec/)<br>
+[Vue 源码-keep-alive](https://www.inoob.xyz/posts/cff565f9/)<br>
 [Vue 源码-过渡动画](https://www.inoob.xyz/posts/a2192891/)<br>
 [Vue 源码-路由](https://www.inoob.xyz/posts/a2192891/)<br>
 [Vue 源码-vuex](https://www.inoob.xyz/posts/a2192891/)<br>
