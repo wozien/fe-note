@@ -1,9 +1,5 @@
 一个弱鸡的学习笔记
 
-## HTML 和 CSS
-
-[css 实现垂直居中](https://www.inoob.xyz/posts/a2938be2/)<br>
-
 ## JS 基础系列
 
 [JS 基础-执行上下文](https://www.inoob.xyz/posts/85155d14/)<br>
