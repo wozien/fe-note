@@ -42,7 +42,7 @@
 
 ## Vue 系列
 
-[VirtualDOM 的简单实现](https://www.inoob.xyz/posts/65181b95/)<br>
+[VirtualDOM 的简单实现](https://github.com/wozien/FE-note/issues/2)<br>
 [Vue 源码-new Vue()发生了啥](https://github.com/wozien/FE-note/issues/1)<br>
 [Vue 源码-组件化](https://www.inoob.xyz/posts/786ee8b8/)<br>
 [Vue 源码-响应式原理](https://www.inoob.xyz/posts/1d890dd2/)<br>
