@@ -45,7 +45,7 @@
 [VirtualDOM 的简单实现](https://github.com/wozien/FE-note/issues/2)<br>
 [Vue 源码-new Vue()发生了啥](https://github.com/wozien/FE-note/issues/1)<br>
 [Vue 源码-组件化](https://github.com/wozien/FE-note/issues/3)<br>
-[Vue 源码-响应式原理](https://www.inoob.xyz/posts/1d890dd2/)<br>
+[Vue 源码-响应式原理](https://github.com/wozien/FE-note/issues/4)<br>
 [Vue 源码-watch 和 computed](https://www.inoob.xyz/posts/c30b93b3/)<br>
 [Vue 源码-组件更新](https://www.inoob.xyz/posts/17db2ff2/)<br>
 [Vue 源码-事件 event](https://www.inoob.xyz/posts/41428e1e/)<br>
