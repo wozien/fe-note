@@ -48,7 +48,7 @@
 [Vue 源码-响应式原理](https://github.com/wozien/FE-note/issues/4)<br>
 [Vue 源码-watch 和 computed](https://github.com/wozien/FE-note/issues/5)<br>
 [Vue 源码-组件更新](https://github.com/wozien/FE-note/issues/6)<br>
-[Vue 源码-事件 event](https://www.inoob.xyz/posts/41428e1e/)<br>
+[Vue 源码-事件 event](https://github.com/wozien/FE-note/issues/7)<br>
 [Vue 源码-v-model](https://www.inoob.xyz/posts/a2192891/)<br>
 [Vue 源码-slot](https://www.inoob.xyz/posts/2ad031ec/)<br>
 [Vue 源码-keep-alive](https://www.inoob.xyz/posts/cff565f9/)<br>
