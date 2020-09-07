@@ -51,7 +51,7 @@
 [Vue 源码-事件 event](https://github.com/wozien/FE-note/issues/7)<br>
 [Vue 源码-v-model](https://github.com/wozien/FE-note/issues/8)<br>
 [Vue 源码-slot](https://github.com/wozien/FE-note/issues/9)<br>
-[Vue 源码-keep-alive](https://www.inoob.xyz/posts/cff565f9/)<br>
+[Vue 源码-keep-alive](https://github.com/wozien/FE-note/issues/10)<br>
 [Vue 源码-过渡动画](https://www.inoob.xyz/posts/a2192891/)<br>
 [Vue 源码-Vue-Router](https://www.inoob.xyz/posts/22ad4b61/)<br>
 [Vue 源码-vuex](https://www.inoob.xyz/posts/a2192891/)<br>
