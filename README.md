@@ -53,5 +53,5 @@
 [Vue 源码-slot](https://github.com/wozien/FE-note/issues/9)<br>
 [Vue 源码-keep-alive](https://github.com/wozien/FE-note/issues/10)<br>
 [Vue 源码-过渡动画](https://www.inoob.xyz/posts/a2192891/)<br>
-[Vue 源码-Vue-Router](https://www.inoob.xyz/posts/22ad4b61/)<br>
+[Vue 源码-Vue-Router](https://github.com/wozien/FE-note/issues/11)<br>
 [Vue 源码-vuex](https://www.inoob.xyz/posts/a2192891/)<br>
