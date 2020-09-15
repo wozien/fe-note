@@ -27,7 +27,7 @@
 
 ## ES6 系列
 
-[es6-let 和 const](https://www.inoob.xyz/posts/4980a7e3/)<br>
+[es6-let 和 const](https://github.com/wozien/FE-note/issues/12)<br>
 [es6-模版字符串](https://www.inoob.xyz/posts/6e27aa72/)<br>
 [es6-函数扩展](https://www.inoob.xyz/posts/7a03402b/)<br>
 [es6-对象扩展](https://www.inoob.xyz/posts/3be0ae87/)<br>
