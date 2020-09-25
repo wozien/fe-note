@@ -29,7 +29,7 @@
 
 [es6-let 和 const](https://github.com/wozien/FE-note/issues/12)<br>
 [es6-模版字符串](https://github.com/wozien/FE-note/issues/13)<br>
-[es6-函数扩展](https://www.inoob.xyz/posts/7a03402b/)<br>
+[es6-函数扩展](https://github.com/wozien/FE-note/issues/14)<br>
 [es6-对象扩展](https://www.inoob.xyz/posts/3be0ae87/)<br>
 [es6-对象和数组解构](https://www.inoob.xyz/posts/2eca66cf/)<br>
 [es6-Symbol 类型](https://www.inoob.xyz/posts/140bf504/)<br>
