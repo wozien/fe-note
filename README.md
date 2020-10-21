@@ -37,7 +37,7 @@
 [es6-迭代器 Iterator](https://github.com/wozien/FE-note/issues/19)<br>
 [es6-生成器 Generator](https://github.com/wozien/FE-note/issues/20)<br>
 [es6-Promise 与异步编程](https://github.com/wozien/FE-note/issues/21)<br>
-[es6-async 函数](https://www.inoob.xyz/posts/7e1271dc/)<br>
+[es6-async 函数](https://github.com/wozien/FE-note/issues/22)<br>
 [es6-代理 Proxy](https://www.inoob.xyz/posts/f7102411/)
 
 ## Vue 系列
