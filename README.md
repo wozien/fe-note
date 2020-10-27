@@ -1,6 +1,6 @@
 :rocket: 一个弱鸡的笔记 
 
-## JS 基础系列
+## JS 基础
 
 [JS 基础-执行上下文](https://www.inoob.xyz/posts/85155d14/)<br>
 [JS 基础-作用域链](https://www.inoob.xyz/posts/c669f65/)<br>
@@ -14,7 +14,7 @@
 [JS 基础-内存管理](https://www.inoob.xyz/posts/f616d4a/)<br>
 [JS 基础-事件循环 Event Loop](https://www.inoob.xyz/posts/d33ba0d2/)<br>
 
-## JS 专题系列
+## JS 专题
 
 [JS 专题-防抖和节流](https://www.inoob.xyz/posts/191efe/)<br>
 [JS 专题-对象中的浅拷贝和深拷贝](https://www.inoob.xyz/posts/7777e26c/)<br>
@@ -25,7 +25,7 @@
 [JS 专题-模拟实现 instanceof](https://www.inoob.xyz/posts/4e8702a6/)<br>
 [JS 专题-实现 call,apply 和 bind](https://www.inoob.xyz/posts/404f47c3/)
 
-## ES6 系列
+## ES6
 
 [es6-let 和 const](https://github.com/wozien/FE-note/issues/12)<br>
 [es6-模版字符串](https://github.com/wozien/FE-note/issues/13)<br>
@@ -40,7 +40,7 @@
 [es6-async 函数](https://github.com/wozien/FE-note/issues/22)<br>
 [es6-代理 Proxy](https://github.com/wozien/FE-note/issues/23)
 
-## Vue 系列
+## Vue 2.x
 
 [VirtualDOM 的简单实现](https://github.com/wozien/FE-note/issues/2)<br>
 [Vue 源码-new Vue()发生了啥](https://github.com/wozien/FE-note/issues/1)<br>
