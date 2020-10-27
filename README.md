@@ -54,3 +54,6 @@
 [Vue 源码-keep-alive](https://github.com/wozien/FE-note/issues/10)<br>
 [Vue 源码-Vue-Router](https://github.com/wozien/FE-note/issues/11)<br>
 
+## TypeScript
+
+[TypeScript - Basic Type (基础类型)](https://github.com/wozien/fe-note/issues/24)
