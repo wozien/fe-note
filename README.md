@@ -56,5 +56,5 @@
 
 ## TypeScript
 
-[TypeScript - Basic Type (基础类型)](https://github.com/wozien/fe-note/issues/24)
+[TypeScript - Basic Type (基础类型)](https://github.com/wozien/fe-note/issues/24)<br>
 [Typescript - Interfaces (接口)](https://github.com/wozien/fe-note/issues/25)
