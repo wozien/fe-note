@@ -23,7 +23,8 @@ const sidebar = {
     {
       text: 'Vue 2.x',
       children: [
-        { text: 'VirtualDOM的简单实现', link: '/source/vue/virtual-dom'}
+        { text: 'VirtualDOM的简单实现', link: '/source/vue/virtual-dom'},
+        { text: 'new Vue 发生啥', link: '/source/vue/new-vue'}
       ]
     }
   ]

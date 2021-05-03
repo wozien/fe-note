@@ -213,7 +213,7 @@ function removeVnodes(parent, vnodes, startIdx, endIdx) {
   
 算法的流程图如下:
 
-<img src="https://blog.inoob.xyz/posts/65181b95/patch.jpg" width="400" />
+<img src="https://blog.inoob.xyz/posts/65181b95/patch.jpg" />
 
 实现节点对比函数``patchVnode()``：
 
