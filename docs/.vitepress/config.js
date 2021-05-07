@@ -26,7 +26,8 @@ const sidebar = {
         { text: 'VirtualDOM的简单实现', link: '/source/vue/virtual-dom'},
         { text: 'new Vue 发生啥', link: '/source/vue/new-vue'},
         { text: '组件化', link: '/source/vue/component'},
-        { text: '响应式原理', link: '/source/vue/reactive'}
+        { text: '响应式原理', link: '/source/vue/reactive'},
+        { text: '计算和监听属性', link: '/source/vue/watch-and-computed'},
       ]
     }
   ]
