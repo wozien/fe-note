@@ -29,6 +29,7 @@ const sidebar = {
         { text: '响应式原理', link: '/source/vue/reactive'},
         { text: '计算和监听属性', link: '/source/vue/watch-and-computed'},
         { text: '组件更新', link: '/source/vue/diff'},
+        { text: 'Event', link: '/source/vue/event'},
       ]
     }
   ]
