@@ -30,6 +30,7 @@ const sidebar = {
         { text: '计算和监听属性', link: '/source/vue/watch-and-computed'},
         { text: '组件更新', link: '/source/vue/diff'},
         { text: 'Event', link: '/source/vue/event'},
+        { text: '指令v-model', link: '/source/vue/v-model'},
       ]
     }
   ]
