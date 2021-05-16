@@ -31,6 +31,7 @@ const sidebar = {
         { text: '组件更新', link: '/source/vue/diff'},
         { text: 'Event', link: '/source/vue/event'},
         { text: '指令v-model', link: '/source/vue/v-model'},
+        { text: '插槽 slot', link: '/source/vue/slot'},
       ]
     }
   ]
