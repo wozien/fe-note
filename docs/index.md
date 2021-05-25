@@ -1,10 +1,10 @@
 ---
 home: true
-heroImage: /img/logo.jpeg
+heroImage: /img/logo.jpg
 heroAlt: Logo image
-heroText: Study And Write
+heroText: 学习，积累，分享
 tagline: 
-actionText: Go!
+actionText: 开始
 actionLink: /summary/js-base/function-context
 features:
   - title: 基础知识

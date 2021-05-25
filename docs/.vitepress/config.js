@@ -33,6 +33,7 @@ const sidebar = {
         { text: '指令v-model', link: '/source/vue/v-model'},
         { text: '插槽 slot', link: '/source/vue/slot'},
         { text: 'keep-alive', link: '/source/vue/keep-alive'},
+        { text: 'Vue Router', link: '/source/vue/vue-router'},
       ]
     }
   ]
