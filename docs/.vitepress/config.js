@@ -15,7 +15,8 @@ const sidebar = {
     {
       text: 'ES6+',
       children: [
-        { text: 'let 和 const', link: '/summary/es6/let-and-const'}
+        { text: 'let 和 const', link: '/summary/es6/let-and-const'},
+        { text: '模板字符串', link: '/summary/es6/pattern-string'},
       ]
     }
   ],
