@@ -2,9 +2,9 @@
 home: true
 heroImage: /img/logo.jpg
 heroAlt: Logo image
-heroText: 学习，积累，分享
+heroText: 
 tagline: 
-actionText: 开始
+actionText: 每天进步一点点
 actionLink: /summary/js-base/function-context
 features:
   - title: 基础知识
