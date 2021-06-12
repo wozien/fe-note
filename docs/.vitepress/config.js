@@ -39,6 +39,11 @@ const sidebar = {
         { text: 'Vue Router', link: '/source/vue/vue-router'},
       ]
     }
+  ],
+  share: [
+    { text: '面试', link: '/share/interview' },
+    { text: '网址社区', link: '/share/website' },
+    { text: '电子书', link: '/share/books' }
   ]
 }
 
@@ -51,15 +56,15 @@ module.exports = {
     repo: 'wozien/fe-note',
 
     nav: [
-      { text: '知识总结', link: '/summary/js-base/function-context', activeMatch: '^/summary/' },
-      { text: '源码分析', link: '/source/vue/virtual-dom', activeMatch: '^/source/' },
-      { text: '优秀文章', link: '/share/', activeMatch: '^/share/'}
+      { text: '总结', link: '/summary/js-base/function-context', activeMatch: '^/summary/' },
+      { text: '源码', link: '/source/vue/virtual-dom', activeMatch: '^/source/' },
+      { text: '搬运工', link: '/share/interview', activeMatch: '^/share/'}
     ],
 
     sidebar: {
       '/summary/': sidebar.summary,
       '/source/': sidebar.source,
-      '/': sidebar.summary
+      '/share/': sidebar.share
     }
   }
 }
