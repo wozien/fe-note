@@ -18,6 +18,7 @@ const sidebar = {
         { text: 'let 和 const', link: '/summary/es6/let-and-const'},
         { text: '模板字符串', link: '/summary/es6/pattern-string'},
         { text: '函数扩展', link: '/summary/es6/function'},
+        { text: '对象扩展', link: '/summary/es6/object'},
       ]
     }
   ],
