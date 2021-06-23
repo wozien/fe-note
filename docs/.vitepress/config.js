@@ -20,6 +20,7 @@ const sidebar = {
         { text: '函数扩展', link: '/summary/es6/function'},
         { text: '对象扩展', link: '/summary/es6/object'},
         { text: '对象和数组解构', link: '/summary/es6/destruction'},
+        { text: 'Symbol 类型', link: '/summary/es6/symbol'},
       ]
     }
   ],
