@@ -241,8 +241,6 @@ let obj = {
 };
 ```
 
-更多关于生成器的说明，参考下一篇[es6-生成器Generator]()
-
 ## 参考
 
 [ES6 系列之迭代器与 for of](https://github.com/mqyqingfeng/Blog/issues/90)
