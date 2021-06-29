@@ -22,6 +22,7 @@ const sidebar = {
         { text: '对象和数组解构', link: '/summary/es6/destruction'},
         { text: 'Symbol 类型', link: '/summary/es6/symbol'},
         { text: '认识Set和Map', link: '/summary/es6/set-and-map'},
+        { text: '迭代器Iterator', link: '/summary/es6/iterator'},
       ]
     }
   ],
