@@ -23,6 +23,7 @@ const sidebar = {
         { text: 'Symbol 类型', link: '/summary/es6/symbol'},
         { text: '认识Set和Map', link: '/summary/es6/set-and-map'},
         { text: '迭代器Iterator', link: '/summary/es6/iterator'},
+        { text: '生成器Generator', link: '/summary/es6/generator'},
       ]
     }
   ],
