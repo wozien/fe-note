@@ -24,6 +24,7 @@ const sidebar = {
         { text: '认识Set和Map', link: '/summary/es6/set-and-map'},
         { text: '迭代器Iterator', link: '/summary/es6/iterator'},
         { text: '生成器Generator', link: '/summary/es6/generator'},
+        { text: 'Promise与异步编程', link: '/summary/es6/promise'},
       ]
     }
   ],
