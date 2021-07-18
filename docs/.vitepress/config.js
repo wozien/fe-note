@@ -25,6 +25,7 @@ const sidebar = {
         { text: '迭代器Iterator', link: '/summary/es6/iterator'},
         { text: '生成器Generator', link: '/summary/es6/generator'},
         { text: 'Promise与异步编程', link: '/summary/es6/promise'},
+        { text: 'async 函数', link: '/summary/es6/async'},
       ]
     }
   ],
