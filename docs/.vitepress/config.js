@@ -27,6 +27,12 @@ const sidebar = {
         { text: 'Promise与异步编程', link: '/summary/es6/promise'},
         { text: 'async 函数', link: '/summary/es6/async'},
       ]
+    },
+    {
+      text: '其他',
+      children: [
+        { text: 'Docker 小节', link: '/summary/others/docker' }
+      ]
     }
   ],
   source: [
