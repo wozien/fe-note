@@ -3,7 +3,8 @@ const sidebar = {
     {
       text: 'JS 基础',
       children: [
-        { text: '函数上下文', link: '/summary/js-base/function-context'}
+        { text: '函数上下文', link: '/summary/js-base/function-context'},
+        { text: '作用域', link: '/summary/js-base/scope'}
       ]
     },
     {
