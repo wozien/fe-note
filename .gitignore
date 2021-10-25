@@ -1,4 +1,6 @@
 node_modules/
 .vscode
+.temp
+.cache
 .DS_Store
-docs/.vitepress/dist
+docs/.vuepress/dist
