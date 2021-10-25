@@ -5,13 +5,23 @@ const sidebar = {
         text: 'JS 基础',
         children: [
           { text: '函数上下文', link: '/summary/js-base/function-context'},
-          { text: '作用域', link: '/summary/js-base/scope'}
+          { text: '作用域', link: '/summary/js-base/scope'},
+          { text: '闭包', link: '/summary/js-base/closure'},
+          { text: '对象原型和原型链', link: '/summary/js-base/prototype'},
+          { text: '事件机制', link: '/summary/js-base/event'},
+          { text: 'DOM', link: '/summary/js-base/dom'},
+          { text: 'Ajax', link: '/summary/js-base/ajax'},
+          { text: '内存管理', link: '/summary/js-base/memory'},
         ]
       },
       {
-        text: 'JS 专题',
+        text: 'JS 进阶',
         children: [
-          { text: '防抖和节流', link: '/summary/js-advance/debounce-and-throttle' }
+          { text: '防抖和节流', link: '/summary/js-advance/debounce-and-throttle' },
+          { text: 'Event Loop', link: '/summary/js-advance/event-loop' },
+          { text: 'Promise 实现原理', link: '/summary/js-advance/promise' },
+          { text: '函数柯里化', link: '/summary/js-advance/curry' },
+          { text: '手写源码系列', link: '/summary/js-advance/fucking-source' },
         ]
       },
       {
@@ -28,6 +38,7 @@ const sidebar = {
           { text: '生成器Generator', link: '/summary/es6/generator'},
           { text: 'Promise与异步编程', link: '/summary/es6/promise'},
           { text: 'async 函数', link: '/summary/es6/async'},
+          { text: '代理 Proxy', link: '/summary/es6/proxy'},
         ]
       }
     ],
