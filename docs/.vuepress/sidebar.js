@@ -77,7 +77,15 @@ const vueSource = {
 const share = [
   { text: '面试', link: '/share/interview' },
   { text: '网址社区', link: '/share/website' },
-  { text: '电子书', link: '/share/books' }
+  { text: '电子书', link: '/share/books' },
+  { 
+    text: '读书笔记',
+    children: [
+      '/share/book/node',
+      '/share/book/webpack'
+
+    ]
+  }
 ]
 
 const sidebar = {
