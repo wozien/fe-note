@@ -133,6 +133,8 @@ module.exports = function(content, sourceMap) {
 }
 ```
 
+和plugin的区别： loader更加专注于文件的转化，而且plugin是扩展webpack的功能。
+
 ## 样式处理
 
 样式文件提取  extract-text-wepack-plugin
@@ -216,5 +218,115 @@ import('./utils').then(({ add }) => {
 
 异步加载的原理：动态的在head插入script标签来加载异步chunk
 
+## 生产环境配置
 
+**开启生产环境模式**
 
+```js
+// webpack.config.js
+{
+  mode: 'production'
+}
+```
+
+**设置环境变量**
+
+```js
+{
+  plugins: [
+    new webpack.DefinePlugin({
+      ENV: JSON.stringify('development') // 注意转为JSON字符串
+    })
+  ]
+}
+```
+
+**source-map**
+
+是指打包压缩后的代码映射会源代码的过程。在打包文件后面增加map文件引用
+
+```js
+//bundle.js
+(function(){})({
+  
+})
+// # sourceMappingURL = bundle.js.map
+```
+
+只有打开浏览器devtool后才去请求加载map文件
+
+线上安全问题
+
+- 配置成no sources-source-map, 可以打印出错误调用栈信息，但是无法显示源码
+- 配置成hidden-source-map， 会生成map文件，但是不会在bundle末尾不会引用。在实践中可以上传到监控平台(比如Sentry)从而进行排查处理
+- 配置成source-map， 利用nginx配置白名单，针对内网ip开放请求
+
+**资源压缩**
+
+config.optimization.minimize配置， webpack3使用uglifyJS压缩，webpack4采用terser
+
+**资源缓存**
+
+- 输出文件模版配置成 [chunkhash].js 方式来控制资源版本， 在文件内容发生变化hash值才会变化
+- 利用splitChunks提取公共的模块
+- html-webpack-plugin插件动态插入src
+
+## 打包优化
+
+**HappyPack**
+
+开启多线程打包优化打包速度，因为webpack的loader预编译是单线程，他会根据规则对模块进行转义，转义后再去查找依赖并且递归重复上面过程，可见这个过程非常耗时。
+
+**缩小打包作用域**
+
+- exclude 和 include
+- noParse - 不需要loader，但是会打包进bundle
+- IngorePlugin - 即使被引用也不会被打包进bundle
+- cache - 缓存转化结果，当内容发生变化才会重新编译
+
+**动态连结库DllPlugin**
+
+对于一些第三方或者不常变化的模块，可以预先编译和打包，然后在项目构建过程中直接取用。和Code Splitting的区别是，它需要单独配置一套webpack打包环境，在项目打包不需要进行额外处理，所以在打包效率上是比splitting高的。也会存在vendor模块id的问题，可以用HashedModulesPlugin解决。
+
+**tree-shaking**
+
+由于ESM依赖关系的构建是在编译阶段确定，webpack利用这个特性在不需要用到的代码块打上标记，然后在代码压缩插件(terser)移除这部分死代码，达到减少bundle体积的目标。
+
+## 开发环境调优
+
+提升效率的插件
+
+- web pack-dashboard:用图形界面展示打包 信息
+- webacpk-merge： 配置合并
+- speed-measure-webpack-plugin：输出每个loader和plugin的耗时
+- size-plugin：监控打包体积，和上次打包的对比
+
+模块热替换HMR
+
+在网页不刷新的前提下，当依赖模块代码发生变动，浏览器会自动请求变动的diff chunk， 从而在保持页面状态不变的情况下进行更新。这个过程是在本地开发环境建立一个WebSocket，当模块发生变动，会推送给前端发生改变的chunk hash信息，然后前端去请求对应的diff chunk， 至于前端怎么去更新这部分chunk，HMR暴露了一些API手动去实现，比如社区中的Vue-loader，react-hot-loader
+
+## 其他打包工具
+
+**Rollup**
+
+更加专注于javscript的打包，而对于其他类型webpack支持更加全面和配置更加简约
+
+- 更少的打包冗余代码
+- 更好的tree shaking
+- 支持多种规范的打包
+
+**Parcel**
+
+相比于webpack，它有如下几个特点
+
+- 打包速度提升
+  - 利用workder并行执行任务
+  - 文件系统缓存
+  - 资源编译过程优化，不同转换任务之间可以传递AST，不像webpack需要重复String到AST的过程
+- 零配置  从html页面开始分支模块依赖，预置了很多配置
+
+**打包工具趋势**
+
+- 性能和通用性
+- 配置级小化和工程标准化
+- WebAssembly
