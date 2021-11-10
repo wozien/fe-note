@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /img/logo.jpg
+heroImage: /img/home.png
 heroAlt: Logo image
 actions:
   - text: 开始阅读 👉

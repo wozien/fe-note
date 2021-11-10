@@ -2,6 +2,12 @@
   // brand colors
   --c-brand: #4e54c8;
   --c-brand-light: #5e64ce;
+
+  .home .hero img {
+    height: calc(100vh - 90px);
+    max-height: 768px;
+    margin: 0 auto;
+  }
 }
 
 html.dark {

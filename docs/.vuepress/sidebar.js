@@ -44,6 +44,17 @@ const es6Bar = {
   ]
 }
 
+// 浏览器
+const browser = {
+  text: '浏览器相关',
+  children: [
+    '/summary/browser/render',
+    '/summary/browser/perf',
+    '/summary/browser/http',
+    '/summary/browser/cache'
+  ]
+}
+
 // 工具 tool
 const toolsBar = {
   text: '效能工具',
@@ -52,27 +63,36 @@ const toolsBar = {
     '/summary/tools/git',
     '/summary/tools/nginx',
     '/summary/tools/regexp',
-
   ]
 }
 
 // 源码
-const vueSource = {
+const vueSource = [{
   text: 'Vue 2.x',
   children: [
-    { text: 'VirtualDOM的简单实现', link: '/source/vue/virtual-dom'},
-    { text: 'new Vue 发生啥', link: '/source/vue/new-vue'},
-    { text: '组件化', link: '/source/vue/component'},
-    { text: '响应式原理', link: '/source/vue/reactive'},
-    { text: '计算和监听属性', link: '/source/vue/watch-and-computed'},
-    { text: '组件更新', link: '/source/vue/diff'},
-    { text: 'Event', link: '/source/vue/event'},
-    { text: '指令v-model', link: '/source/vue/v-model'},
-    { text: '插槽 slot', link: '/source/vue/slot'},
-    { text: 'keep-alive', link: '/source/vue/keep-alive'},
-    { text: 'Vue Router', link: '/source/vue/vue-router'},
+    '/source/vue/virtual-dom',
+    '/source/vue/new-vue',
+    '/source/vue/component',
+    '/source/vue/reactive',
+    '/source/vue/watch-and-computed',
+    '/source/vue/diff',
+    '/source/vue/event',
+    '/source/vue/v-model',
+    '/source/vue/slot',
+    '/source/vue/keep-alive',
+    '/source/vue/vue-router',
   ]
-}
+}, {
+  text: 'Vue 3.x',
+  children: []
+}]
+
+const reactSource = [{
+  text: 'React 17.x',
+  children: [
+    '/source/react/'
+  ]
+}]
 
 const share = [
   { text: '面试', link: '/share/interview' },
@@ -83,7 +103,6 @@ const share = [
     children: [
       '/share/book/node',
       '/share/book/webpack'
-
     ]
   }
 ]
@@ -95,13 +114,17 @@ const sidebar = {
       jsAdvanceBar,
       es6Bar
     ],
+    'browser': [
+      browser
+    ],
     'tools': [
       toolsBar
     ]
-  } ,
-  source: [
-    vueSource
-  ],
+  },
+  source: {
+    'vue': vueSource,
+    'react': reactSource
+  },
   share: share
 }
 
