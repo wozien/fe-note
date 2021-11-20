@@ -51,7 +51,9 @@ const browser = {
     '/summary/browser/render',
     '/summary/browser/perf',
     '/summary/browser/http',
-    '/summary/browser/cache'
+    '/summary/browser/cache',
+    '/summary/browser/security',
+    '/summary/browser/v8',
   ]
 }
 

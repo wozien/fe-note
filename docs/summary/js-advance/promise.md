@@ -1,301 +1,301 @@
-# Promise 实现原理
+# 手写实现 Promise
 
-``Promise`` 是 es6 引入的异步处理方案，让我们可以采用链式的写法注册回调函数，摆脱多层异步回调函数嵌套的情况，使代码更加简洁。
+`Promise` 是 es6 引入的异步处理方案，让我们可以采用链式的写法注册回调函数，摆脱多层异步回调函数嵌套的情况，使代码更加简洁。而理解 `Promise` 内部实现原理也十分重要，我们可以从简单的模型开始，考虑不同的边界情况，一步一步的往最终结果实现。
 
-<!--more-->
+## 一个简单的雏形
 
-## 基本用法
-
-用``new Promise()`` 创建一个 ``Promise`` 对象:
+如下我们可以新建一个 `Promise` 对象, 然后马上执行成功的回调。
 
 ```js
-let p = new Promise((resolve, reject) => {
-  //
-})
-```
-
-``Promise`` 对象有3种状态:
-
-- ``pending``: 表示进行中的状态
-- ``fulfilled``: 任务完成的状态，调用``resolve()``后触发
-- ``rejected``: 任务失败的状态， 调用``rejected()``后触发
-
-状态只能从 ``pending``到 ``fulfilled``，或者 ``peding`` 到 ``rejected``。并且状态一旦发生改变，将不会恢复。
-
-``Promise``对象的 ``then()`` 方法，第一个参数为状态变成``fulfilled``的处理函数，第二个为 ``rejected`` 的处理函数。处理函数的参数通过 ``resolve()``方法或者 ``reject()``方法的参数传递：
-
-```js
-let p = new Promise((resolve, reject) => {
-  // 修改promise对象的状态为fulfilled
-  resolve(1);
-});
-
-p.then(v => {
-  console.log(v);   // 1
-});
-```
-
-``catch()`` 方法同样可以捕获失败状态的 ``Promise`` 对象，所以下面两种写法等价：
-
-```js
-let p = new Promise((resolve, reject) => {
-  // 修改promise对象的状态为rejected
-  reject(new Error('boom'));
-});
-
-p.then(null, err => {
-  console.log(err.message);  // boom
-});
-
-// 等价于
-
-p.catch(err => {
-  console.log(err.message); // boom
-});
-```
-
-在``Promise`` 初始化函数中抛出错误也是变成 ``rejected`` 状态：
-
-```js
-let p = new Promise((resolve, reject) => {
-  throw new Error('boom');
-});
-
-p.catch(err => {
-  console.log(err.message); // boom
-});
-
-```
-
-对于未处理的错误，``catch()`` 总是能捕捉到。比如上面可以改写成：
-
-```js
-let p = new Promise((resolve, reject) => {
-  throw new Error('boom');
-});
-
-p.then(null).catch(err => {
-  console.log(err.message); // boom
-});
-```
-
-## 立即完成的Promise
-
-``Promise.resolve()`` 方法只接收一个参数并返回一个完成态的 ``Promise``：
-
-```js
-
-let p = Promise.resolve(1);
-p.then(v => console.log(v)); // 1
-
-// 等价于
-let p = new Promise((resolve, reject) => {
-  resolve(1)
-})
-```
-
-如果方法传入的是一个非Promise的 ``thenable`` 对象，指的是拥有 ``then()``方法并接收 ``resolve`` 和 ``reject`` 两个参数的普通对象。结果会返回一个新的``Promise``，并且执行``thenable`` 中的``then``方法：
-
-```js
-let thenable = {
-  then(resolve, reject) {
-    resolve(44);
-  }
-};
-
-let p = Promise.resolve(thenable);
-
-p.then(v => console.log(v)); // 44
-```
-
-如果传入的是一个``Promise`` 对象，会原封不动的返回这个对象。
-
-另外，通过 ``Promise.resolve()`` 创建的对象的 ``then()`` 方法执行是在本次事件循环：
-
-```js
-setTimeout(() => {
-  console.log('next event loop');
-}， 0);
-
-let p = Promise.resolve('current event loop');
-
-p.then(v => console.log(v));
-
-// current event loop
-// next event loop
-```
-
-利用 ``Promise.reject()``可以创建立即失败的``Promise``，参数用法和上面类似。
-
-## 串行的Promise
-
-其实每次调用``then()`` 和 ``catch()`` 方法都会返回一个``Promise``对象，因此我们可以链式的调用:
-
-```js
-let p = Promise.resolve(42);
-
-p.then(v => console.log(v)).then(() => console.log('finish'));  // 42 finish
-```
-
-在 ``then()`` 或者 ``catch()`` 方法中抛出错误，会被下一个``catch()``方法捕获。所以我们推荐在链式的Promise最后一个为 ``catch()``:
-
-```js
-let p = Promise.resolve(42);
-
-p.then(v => {
-  console.log(v);   // 42
-  throw new Error('boom');
-}).catch(e => {
-  console.log(e.message);  // boom
-});
-```
-
-在``then()`` 方法中可以return一个值，相当于该值会先作为 ``Promise.resolve()`` 参数调用，然后返回一个 ``Promise`` 对象，后续的方法调用取决与这个 ``Promise`` 的状态：
-
-```js
-let p = Promise.resolve(42);
-
-p.then(v => {
-  console.log(v);
-  return v + 1; // 相当于 Promise.resolve(v+1);
-})
-  .then(v => {
-    console.log(v);
-  })
-
-// 42
-// 43
-```
-
-返回一个 ``thenable`` 对象：
-
-```js
-let p = Promise.resolve(42);
-let thenable = {
-  then(resolve, reject) {
-    reject(44);
-  }
-};
-
-p.then(v => {
-  console.log(v);
-  return thenable; // 相当于 Promise.resolve(thenable);
-})
-  .then(v => {
-    console.log(v);
-  })
-  .catch(v => {
-    console.log('error: ' + v);
-  });
-
-// 42
-// error: 44
-```
-
-## 响应多个Promise
-
-``Promise.all()`` 方法接收一个参数并返回一个 ``Promise``，该参数是含有多个``Promise`` 对象的可迭代元素，例如数组。当每个 ``Promise``对象的状态都为``fulfilled`` 时，返回的 ``Promise`` 状态才是 ``fulfilled``:
-
-```js
-let p1 = Promise.resolve(1);
-let p2 = new Promise((resolve, reject) => {
-  resolve(2);
-});
-let p3 = new Promise((resolve, reject) => {
-  resolve(3);
-});
-
-let p = Promise.all([p1, p2, p3]);
-p.then(v => console.log(v));  // [ 1, 2, 3 ]
-```
-
-只要其中有一个``Promise``状态为 ``rejected``，最后的返回 ``Promise``的状态就为 ``rejected``：
-
-```js
-let p1 = Promise.resolve(1);
-let p2 = new Promise((resolve, reject) => {
-  reject(new Error('boom'));
-});
-let p3 = new Promise((resolve, reject) => {
-  resolve(3);
-});
-
-let p = Promise.all([p1, p2, p3]);
-p.then(v => console.log(v)).catch(e => console.log(e.message)); // 'boom'
-```
-
-``Promise.race()``方法接收的参数和 ``all()``一样，不同的是，传给 ``race()``方法的 ``Promise`` 对象只要有一个状态发生改变，返回的 ``Promise`` 的状态就会改变，无需等其他的 ``Promise`` 状态都改变：
-
-```js
-let p1 = new Promise((resolve, reject) => {
-  setTimeout(() => {
+var a = new Promise(function(resolve) {
     resolve(1);
-  }, 0);
-});
+})
 
-let p2 = Promise.resolve(2);
-let p3 = new Promise((resolve, reject) => {
-  reject(3);
-});
-
-let p = Promise.race([p1, p2, p3]);
-p.then(v => console.log(v)).catch(e => console.log(e.message)); // 2
+a.then(x => console.log(x))
 ```
 
-## 异步处理应用
-
-在之前我们有一个模拟的异步任务：
+可以看出， `Promise` 是一个构造函数，接收一个函数参数，其中函数参数的参数 `resolve` 在 `Promise` 构造函数内部实现。构造函数有一个 `then` 的方法，注册成功的回调， 在调用 `resolve` 时执行。 因此可以得到如下一个简单的模型：
 
 ```js
-function fetchData(url, cb) {
-  setTimeout(() => {
-    cb({ code: 0, data: url });
-  }, 1000);
-}
+function _Promise(fn) {
+    var self = this;
+    this.value = null;
+    this.callbacks = [];
 
-fetchData('aa.com', res => console.log(res.data));  // aa.com
-```
+    this.then = function(onFulfilled) {
+        // 注册一个成功的回调函数
+        this.callbacks.push(onFulfilled);
+    }
 
-我们可以利用 ``Promise`` 的方式改写这个异步任务：
+    function resolve(value) {
+        self.value = value;
+        // 让所有回调函数进入下一个事件循环执行
+        setTimeout(function(){
+            self.callbacks.forEach(function(callback) {
+                callback(value);
+            })
+        },0);
+    }
 
-```js
-function fetchData(url) {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      resolve({ code: 0, data: url });
-    }, 1000);
-  });
-}
-
-
-fetchData('aa.com').then(res => console.log(res.data)); // aa.com
-```
-
-对于自动执行函数run()我们可以改写成支持 ``Promise`` 异步的形式：
-
-```js
-function run(gen) {
-  let g = gen();
-
-  function next(data) {
-    let result = g.next(data);
-
-    if (result.done) return;
-
-    let p = Promise.resolve(result.value);
-    p.then(value => {
-      next(value);
-    }).catch(err => {
-      g.throw(err);
-    });
-  }
-
-  next();
+    fn(resolve)
 }
 ```
 
-## 参考
+构造函数里面的属性 `value` 表示成功的最终值， `callbacks` 表示通过 `then` 注册的成功回调方法，类型是一个数组是因为 `Promise` 对象支持注册多个成功回调函数。在 `resolve` 中加入 `setTimeout` 延时是让所有回调函数在下一轮事件循环中执行，从而保证所有在当前执行队列的回调函数注册成功。
 
-[阮一峰es-promise](http://es6.ruanyifeng.com/#docs/promise#Promise-resolve)
+## 引入状态
 
-[ES6 系列之我们来聊聊 Promise](https://github.com/mqyqingfeng/Blog/issues/98)
+前面实现的雏形可以让当前执行队列的回调函数成功执行，但是在下一轮或者之后注册的回调函数将无效。比如：
+
+```js
+a.then(x => console.log(x))
+
+setTimeout(function(){
+    a.then(x => console.log(x+1))
+}, 1000);
+```
+
+上面只会输出第一个回调结果。所以，我们需要引入一个状态属性 `state`, 表示 `Promise` 对象当前的状态。当状态为 `pending` 的时候，注册的回调函数才压进 `callbacks` 中。当调用 `resolve` 后状态变为已解决 `fulfilled`， 此时通过 `then` 注册的成功回调会马上执行。如下：
+
+```js
+function _Promise(fn) {
+    var self = this;
+
+    this.state = 'pending';
+    this.value = null;
+    this.callbacks = [];
+
+    this.then = function(onFulfilled) {
+        if(this.state === 'pending') {
+            this.callbacks.push(onFulfilled);
+        }else {
+            onFulfilled(this.value);
+        }       
+    }
+
+    function resolve(value) {
+        self.state = 'fulfilled';
+        self.value = value;
+        // 让所有回调函数进入下一个事件循环执行
+        setTimeout(function(){
+            self.callbacks.forEach(function(callback) {
+                callback(value);
+            })
+        },0);
+    }
+
+    fn(resolve)
+}
+```
+
+## 链式调用
+
+我们知道原生的 `Promise` 可以支持链式调用，如下：
+
+```js
+var a = new Promise(function(resolve) {
+    resolve(1);
+})
+
+a.then(x => {
+    console.log(x);
+    return x+1;
+}).then(x => console.log(x))
+```
+
+可以看出第一个 `Promise` 对象回调中返回的值会最为新对象回调的参数，相当于返回一个立即 `resovle`(前者返回值) 的新 `Promise` 对象, 所以上面会输出1和2。
+
+现在，我们就可以把 `then` 函数修改成返回一个新的 `Promise` 对象， 并且和当前的 `Promise` 对象做关联。如下：
+
+```js
+function _Promise(fn) {
+    var self = this;
+
+    this.state = 'pending';
+    this.value = null;
+    this.callbacks = [];
+
+    this.then = function(onFulfilled) {
+        // 返回一个新的Promise对象
+        return new _Promise(function(resolve) {
+            handleCallback({
+                onFulfilled: onFulfilled || null,
+                resolve: resolve  // 让当前的promise对象和新的promise对象关联
+            })
+        })
+    }
+
+    function handleCallback(callback) {
+        if(self.state === 'pending') {
+            self.callbacks.push(callback);return;
+        }
+
+        var res = callback.onFulfilled(self.value);
+        // 调用新的promise对象的resolve
+        callback.resolve(res);
+    }
+
+    function resolve(value) {
+        self.state = 'fulfilled';
+        self.value = value;
+        // 让所有回调函数进入下一个事件循环执行
+        setTimeout(function(){
+            self.callbacks.forEach(function(callback) {
+                handleCallback(callback);
+            })
+        },0);
+    }
+
+    fn(resolve)
+}
+```
+
+有上面代码可以看出， `handleCallback` 方法是关联两个就行 `Promise` 对象的关键，该方法的参数是一个对象，对象的 `onFulfilled` 属性是老 `Promise` 对象的回调函数， `resolve` 属性是新对象的构造函数的 `resolve` 方法，也可以说是新对象的 `resolve` 方法。因为构造函数的 `resolve` 函数是一个闭包，里面的 self 保存的是对应实例化的 `Promise` 对象。
+
+当第一个对象的 `onFulfilled` 函数为空， 直接把一个对象的终值 `value` 作为第二个对象的 `resolve` 参数。
+
+```js
+var a = new Promise(function(resolve) {
+    resolve(2);
+})
+
+a.then().then(x => console.log(x))   //  => 2
+```
+
+于是 handleCallback 函数修改成：
+
+```js
+function handleCallback(callback) {
+	if(self.state === 'pending') {
+		self.callbacks.push(callback);return;
+	}
+
+	if(!callback.onFulfilled) {
+		callback.resolve(self.value);return;
+	}
+
+	var res = callback.onFulfilled(self.value);
+	// 调用新的promise对象的resolve
+	callback.resolve(res);
+}
+```
+
+我们前面提到第一个对象的回调函数返回值等于第二个对象的 `resolve` 参数，它等同于下面形式：
+
+```js
+var a = new Promise(function(resolve) {
+    resolve(1);
+})
+
+a.then(x => {
+    return new Promise(function(resolve){
+        resolve(x+1)
+    })
+}).then(x => console.log(x))
+```
+
+于是要考虑调用第一个对象回调会返回 `thenable` 对象的情况，这个时候应该把由 `a.then()` 创建的对象的 `resolve` 对象这个 `thenable` 对象的成功回调， 状态受到里面 `thenable` 对象的状态影响， 所以终值始终等于这个 `thenable` 对象的终值。于是，`resolve` 修改成：
+
+```js
+function resolve(endValue) {
+	if(endValue && (typeof endValue === 'object') && typeof endValue.then === 'function') {
+   	  // 让新的promise对象的resolve作为thenable对象的成功回调
+		endValue.then(resolve);
+		return;
+	}
+
+	self.state = 'fulfilled';
+	self.value = endValue;
+	// 让所有回调函数进入下一个事件循环执行
+	setTimeout(function(){
+		self.callbacks.forEach(function(callback) {
+			handleCallback(callback);
+		})
+	},0);
+}
+```
+
+## 失败处理
+
+和成功 `fulfilled` 的处理逻辑一样，我们引入失败的状态 `rejected` 和失败回调 `onRejected`
+
+```js
+function _Promise(fn) {
+    var self = this;
+
+    this.state = 'pending';
+    this.value = null;
+    this.callbacks = [];
+
+    this.then = function(onFulfilled, onRejected) {
+        // 返回一个新的Promise对象
+        return new _Promise(function(resolve, reject) {
+            handleCallback({
+                onFulfilled: onFulfilled || null,
+                onRejected: onRejected || null,
+                resolve: resolve,
+                reject: reject
+            })
+        })
+    }
+
+    function handleCallback(callback) {
+        if(self.state === 'pending') {
+            self.callbacks.push(callback);return;
+        }
+
+        var cb = self.state === 'fulfilled' ? callback.onFulfilled : callback.onRejected;
+        if(cb === null) {
+            cb = self.state === 'fulfilled' ? callback.resolve : callback.reject;
+            cb(self.value);
+            return;
+        }
+
+        // 加入try-catch防止执行回调出错
+        try {
+            var res = cb(self.value);
+            callback.resolve(res);    
+        }catch(e) {
+            callback.reject(e);
+        }
+    }
+
+    function resolve(endValue) {
+        if(endValue && (typeof endValue === 'object') && typeof endValue.then === 'function') {
+            endValue.then(resolve, reject);
+            return;
+        }
+
+        self.state = 'fulfilled';
+        self.value = endValue;
+        excute();
+    }
+
+    function reject(reason) {
+        self.state = 'rejected';
+        self.value = reason;
+        excute();
+    }
+
+    function excute() {
+        // 让所有回调函数进入下一个事件循环执行
+        setTimeout(function(){
+            self.callbacks.forEach(function(callback) {
+                handleCallback(callback);
+            })
+        },0);
+    }
+
+    fn(resolve, reject)
+}
+```
+
+加入 `try-catch` 保证在执行回调出错的时候能捕捉得到。如果执行回调成功，新的 `Promise` 总是成功 `fulfilled` 的，不管你之前的 `Promise` 对象是调用 `resolve` 还是 `reject` 。
+
+## 总结
+
+理解 `Promise` 源码的关键点如下：
+
+- `then` 函数在 `Promise` 为 `pending` 状态时为注册回调，统一压到一个回调数组，所以我们会发现上面的测试例子的 `callbacks` 都是空数组，然后在 `resolve` 或者 `reject` 时才会统一执行。在其他状态注册都会直接执行。
+
+- `then` 函数返回一个新的 `Promise` 对象，两个对象通过 `resolve`(前者对象的终值) 关联起来。
