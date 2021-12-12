@@ -7,8 +7,8 @@ const jsBaseBar = {
     '/summary/js-base/closure',
     '/summary/js-base/prototype',
     '/summary/js-base/event',
-    '/summary/js-base/dom',
-    '/summary/js-base/ajax',
+    // '/summary/js-base/dom',
+    // '/summary/js-base/ajax',
     '/summary/js-base/memory'
   ]
 }
