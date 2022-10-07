@@ -65,7 +65,7 @@ module.exports = router;
 </html>
 ```
 
-但当打开http://localhost:3000/?xss=这段 URL 时，其结果如下图所示：
+但当打开 `http://localhost:3000/?xss=这段` URL 时，其结果如下图所示：
 
 ![](https://wozien-cloud-oss.oss-cn-shenzhen.aliyuncs.com/images/blog/4dff7d83fe2eecc6cb52c126b4f650fa.webp)
 

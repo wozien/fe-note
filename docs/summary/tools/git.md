@@ -159,9 +159,9 @@ dev分支			发布开发版本
 <developer name>分支	个人开发分支（个人开发完成将该分支并入dev，同时保留该分支，继续开发）
 ```
 
-## References
-```bash
-https://github.com/skywind3000/awesome-cheatsheets/blob/master/tools/git.txt
-https://www.liaoxuefeng.com/wiki/896043488029600
-https://git-scm.com/book/en/v2
-```
+## 相关链接
+[https://github.com/skywind3000/awesome-cheatsheets/blob/master/tools/git.txt](https://github.com/skywind3000/awesome-cheatsheets/blob/master/tools/git.txt)
+
+[https://www.liaoxuefeng.com/wiki/896043488029600](https://www.liaoxuefeng.com/wiki/896043488029600)
+
+[https://git-scm.com/book/en/v2](https://git-scm.com/book/en/v2)
