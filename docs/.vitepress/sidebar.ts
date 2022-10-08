@@ -91,7 +91,7 @@ const vueSource: DefaultTheme.SidebarGroup[] = [{
 const reactSource: DefaultTheme.SidebarGroup[] = [{
   text: 'React 黑魔法',
   items: [
-    { text: '浅谈 Fiber 架构', link: '/source/react/' }
+    { text: '浅谈 Fiber 架构', link: '/source/react/fiber' }
   ]
 }]
 
