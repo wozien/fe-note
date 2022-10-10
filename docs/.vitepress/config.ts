@@ -26,8 +26,9 @@ export default defineConfig({
         text: '进阶', 
         activeMatch: '^/source/',
         items: [
-          { text: 'Vue', link: '/source/vue/virtual-dom'},
-          { text: 'React', link: '/source/react/fiber'},
+          { text: 'Vue', link: '/source/vue/virtual-dom' },
+          { text: 'React', link: '/source/react/fiber' },
+          { text: '工程化', link: '/source/enginer/webpack' }
         ]
       },
       { text: '分享', link: '/share/interview', activeMatch: '^/share/'}

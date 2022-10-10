@@ -67,7 +67,7 @@ const toolsBar: DefaultTheme.SidebarItem = {
   ]
 }
 
-// 源码
+// Vue 源码
 const vueSource: DefaultTheme.SidebarGroup[] = [{
   text: 'Vue2 解析',
   items: [
@@ -88,12 +88,21 @@ const vueSource: DefaultTheme.SidebarGroup[] = [{
   items: []
 }]
 
+// React source
 const reactSource: DefaultTheme.SidebarGroup[] = [{
   text: 'React 黑魔法',
   items: [
     { text: '浅谈 Fiber 架构', link: '/source/react/fiber' }
   ]
-}]
+}];
+
+// webpack, vite 
+const enginerSouce: DefaultTheme.SidebarGroup[] = [{
+  text: '前端工程化',
+  items: [
+    { text: 'webpack 打包原理', link: '/source/enginer/webpack' }
+  ]
+}];
 
 const share: DefaultTheme.SidebarGroup[] = [
   { text: '面试',
@@ -116,7 +125,8 @@ const share: DefaultTheme.SidebarGroup[] = [
       { text: 'webpack实战：入门、进阶与调优', link: '/share/book/webpack' },
     ]
   }
-]
+];
+
 
 const sidebarGroup = {
   summary: {
@@ -134,7 +144,8 @@ const sidebarGroup = {
   },
   source: {
     'vue': vueSource,
-    'react': reactSource
+    'react': reactSource,
+    'enginer': enginerSouce
   },
   share: share
 }
@@ -147,6 +158,7 @@ const sidebar: DefaultTheme.Sidebar = {
   '/summary/tools/': sidebarGroup.summary.tools,
   '/source/vue/': sidebarGroup.source.vue,
   '/source/react/': sidebarGroup.source.react,
+  '/source/enginer/': sidebarGroup.source.enginer,
   '/share/': sidebarGroup.share as DefaultTheme.SidebarGroup[]
 }
 

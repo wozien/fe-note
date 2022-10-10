@@ -34,7 +34,9 @@ const module = {
 const exports = module.exports
 ```
 
-> 注意: module.exports 和exports不能同时使用
+::: warning
+注意: module.exports 和exports不能同时使用
+:::
 
 ESM和CommonJS区别
 
@@ -54,7 +56,7 @@ AMD，UMD等,加载npm模块获取查找node_modules对应包下面的package.js
 (function(modules) {
   const installedModules = {}
   function webpackRequire(moduleId) {
-    if(installedModules[moduleId]) return installedModules[moduleId]
+    if(installedModules[moduleId]) return installedModules[moduleId].exports
     const module = installedModules[moduleId] = {
       id: moduleId,
       loaded: false,
@@ -95,7 +97,7 @@ webpack会从入口文件开始检索，并将具有依赖关系的模块生成�
   - /开头：  相对于当前域名， 如 '/assets'
   - HTTP形式： CDN资源访问, 如 'htttp://mycdn.com/assets'
 
-## 预处理器
+## 预处理器(Loader)
 
 webpack本身只能处理js文件，针对其他类型的模块需要预处理器loader转换成webpack能识别的结果。
 
@@ -293,8 +295,8 @@ config.optimization.minimize配置， webpack3使用uglifyJS压缩，webpack4采
 
 提升效率的插件
 
-- web pack-dashboard:用图形界面展示打包 信息
-- webacpk-merge： 配置合并
+- webpack-dashboard:用图形界面展示打包 信息
+- webpack-merge： 配置合并
 - speed-measure-webpack-plugin：输出每个loader和plugin的耗时
 - size-plugin：监控打包体积，和上次打包的对比
 
