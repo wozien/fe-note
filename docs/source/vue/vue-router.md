@@ -357,7 +357,7 @@ if (route.children) {
 
 对于我们的例子，生成的结果如下：
 
-<img src="http://blog.inoob.xyz/posts/22ad4b61/1.jpg"/>
+<img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/11/17/16e75ac462927e04~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp"/>
 
 接着，我们看下`match`方法的定义。`match`方法是根据当前的`route`和响应跳转的位置`location`计算得出新的`route`。首先，要对新的跳转位置进行格式化:
 
@@ -1025,4 +1025,4 @@ return h(this.tag, data, this.$slots.default)
 
 到此，`Vue-Router`的源码就大致分析完了，其实里面有很多实现细节还没扣，比如怎么格式化一个`location`，怎么提取对应组件的路由钩子，滚动的处理等，但是这不影响路由变更到视图渲染的主流程。整个流程可以概括下图：
 
-<img src="http://blog.inoob.xyz/posts/22ad4b61/2.jpg"/>
+<img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/11/17/16e75ac47342cf8d~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp"/>

@@ -341,7 +341,7 @@ function installComponentHooks (data: VNodeData) {
 
 显而易见，它把``componentVNodeHooks``对象定义的各种阶段钩子合并到了我们新建的组件vnode的hook属性上面。至此我们组件vnode就创建完成并返回，输出下返回的结果：
 
-<img src="https://blog.inoob.xyz/posts/786ee8b8/1.jpg"/>
+<img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/11/10/16e54c10390abd7b~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp"/>
 
 
 ## 创建组件实例
@@ -544,7 +544,7 @@ if (isDef(vnode.componentInstance)) {
 
 通过``initComponent``方法会把组件对应的真实DOM赋值给``vnode.elm``，注意这是vnode是组件App的占位虚拟节点，然后调用``insert()``方法把组件插入DOM中。至此，我们App组件就渲染完成：
 
-<img src="https://blog.inoob.xyz/posts/786ee8b8/2.jpg"/>
+<img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/11/10/16e54c103910ec30~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp"/>
 
 ## 总结
 

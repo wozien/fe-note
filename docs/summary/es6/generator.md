@@ -95,7 +95,7 @@ console.log(iterator.next());  // { value: undefined, done: true }
 
 注意，第一次调用 ``next()`` 传入参数会被忽略。运行的流程可以如下图：
 
-<img src="https://blog.inoob.xyz/posts/33ce65af/1.jpg" />
+<img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/10/7/16da56ab1fdec34c~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" />
 
 ### 在迭代器抛出错误
 

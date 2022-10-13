@@ -15,7 +15,7 @@
 用打印来模拟请求处理：
 
 ```js
-var ipt = document.getElementById('input');
+const ipt = document.getElementById('input');
 ipt.addEventListener('keyup', function(e){
   console.log(e.target.value);
 });
@@ -23,119 +23,80 @@ ipt.addEventListener('keyup', function(e){
 
 结果如下：
 
-<img src="http://blog.inoob.xyz/posts/191efe/1.gif" width="250"/>
+<img src="https://wozien-cloud-oss.oss-cn-shenzhen.aliyuncs.com/images/blog/202210111138.gif"/>
 
 可见，每次触发事件都会执行回调函数，现在加入防抖处理：
 
 ```js
+/**
+ * 函数防抖
+ * @param {*} func 函数
+ * @param {*} delay 延时
+ * @param {*} flag 是否第一次执行
+ */
+function debounce(func, delay, flag) {
+  let timer;
+  return function(...args) {
+    timer && clearTimeout(timer);
 
-var debounce = function(func, delay) {
-  var timer = null
-  return function() {
-      var that = this;
-      var args = arguments;
-      
-      if(timer) {
-          clearTimeout(timer);
-      }
+    if(flag && !timer) {
+      func.apply(this, args);
+    }
 
-      timer = setTimeout(function() {
-          func.apply(that, args);
-      }, delay)
+    timer = setTimeout(() => {
+      func.apply(this, args)
+    }, delay);
   }
 }
 
 ipt.addEventListener('keyup', debounce(function(e){
   console.log(e.target.value);
-}, 400))
+}, 400));
 ```
 
 效果如下：
 
-<img src="http://blog.inoob.xyz/posts/191efe/2.gif" />
+<img src="https://wozien-cloud-oss.oss-cn-shenzhen.aliyuncs.com/images/blog/20221011_1336.gif" />
 
 可见，输入框在停止输入400ms后执行回调。在防抖后的回调函数用 ``timer`` 记录计时，每次执行回调的时候会先清空之前的计时。注意这里的``timer``是闭包变量，始终保持着上一个计时。
 
 ## 函数节流
 
-节流``throttle``: 让事件的回调一定时间间隔只执行一次。节流函数有两种实现方式，一种是记录增量，一种是定时方式。
-
-用增量的方式实现节流：
+节流``throttle``: 让函数每隔一段时间内执行一次，常用在 `下拉滚动加载` 
 
 ```js
-var throttle = function(func, delay) {
-    var pre = Date.now();
-    return function() {
-        var that = this;
-        var args = arguments;
-        var now = Date.now();
-
-        if (now - pre >= delay) {
-            func.apply(that, args);
-            pre = now;
-        }
+/**
+ * 函数节流
+ * @param {*} func 函数
+ * @param {*} delay 延时
+ * @param {*} flag 是否第一次执行
+ */
+function throttle(func, delay, flag) {
+  let timer;
+  return function(...args) {
+    if(flag) {
+      func.apply(this, args);
+      flag = false;
     }
+
+    if(!timer) {
+      timer = setTimeout(() => {
+        func.apply(this, args);
+        timer = null;
+      }, delay);
+    }
+  }
 }
 
 ipt.addEventListener('keyup', throttle(function(e){
-    console.log(e.target.value);
-}, 1000))
+  console.log(e.target.value);
+}, 400));
 ```
 
 节流的效果如下：
 
-<img src="http://blog.inoob.xyz/posts/191efe/3.gif" />
+<img src="https://wozien-cloud-oss.oss-cn-shenzhen.aliyuncs.com/images/blog/20221011_1350.gif" />
 
-可见，无论怎么输入，事件回调总会在1s内执行一次。而且第一次输入会马上执行，这是因为处理节流的时候和第一次触发的时间间隔大于1s。但是最后一次触发不会执行回调。
-
-利用计时方式处理节流：
-
-```js
-var throttle = function(func, delay) {
-    var timer = null;
-    return function() {
-        var that = this;
-        var args = arguments;
-
-        if(!timer) {
-            timer = setTimeout(function() {
-                func.apply(that, args);
-                timer = null;
-            }, delay)
-        }
-    }
-}
-```
-
-利用变量 ``timer`` 记录定时器，如果定时器存在，则不执行回调。否则创建一个延时器执行回调。这种方法和时间戳增量的区别就是第一个触发不会立即执行回调，但是最后一次时间会在延时后触发回调函数。
-
-如果想要立即触发并且最后一次也要执行回调，可以利用时间戳和计时方式结合在实现节流：
-
-```js
-var throttle = function(func, delay) {
-    var timer = null;
-    var pre = Date.now();
-    return function() {
-        var now = Date.now();
-        var that = this;
-        var args = arguments;
-        var remain = delay - (now - pre);
-
-        clearTimeout(timer);
-        if (remain <= 0) {
-            func.apply(that, args);
-            pre = now
-        }else {
-            timer = setTimeout(function() {
-                func.apply(that, args);
-                pre = now;
-            }, remain)
-        }
-    }
-}
-```
-
-上面的节流函数会先判断剩余的间隔时间，如果剩余时间小于0，则立即执行。否则创建一个剩余时间的定时。注意，每次要记得清空之前的定时。
 
 ## 应用场景
 

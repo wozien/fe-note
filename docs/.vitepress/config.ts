@@ -28,7 +28,7 @@ export default defineConfig({
         items: [
           { text: 'Vue', link: '/source/vue/virtual-dom' },
           { text: 'React', link: '/source/react/fiber' },
-          { text: '工程化', link: '/source/enginer/webpack' }
+          { text: '工程化', link: '/source/webpack/' }
         ]
       },
       { text: '分享', link: '/share/interview', activeMatch: '^/share/'}

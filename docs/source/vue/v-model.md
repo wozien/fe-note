@@ -48,7 +48,7 @@ if (process.env.NODE_ENV !== 'production' && name === 'model') {
 
 这个方法就是处理普通指令并调用`addDirective`方法在ast节点的`directives`属性上增加指令对象，对于我们的例子，执行完的结果:
 
-<img src="http://blog.inoob.xyz/posts/a2192891/1.jpg" />
+<img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/11/10/16e54c60de851f86~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" />
 
 现在对`v-model`的编译解析阶段就完成了，接下来是进行编译代码生成阶段。
 
@@ -260,7 +260,7 @@ addHandler(el, event, code, null, true)
 
 它会往ast节点上增加一个`props`和绑定一个事件event，这就是Vue语法糖实现的核心。执行完这段逻辑看下ast节点结果:
 
-<img src="http://blog.inoob.xyz/posts/a2192891/2.jpg" />
+<img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/11/10/16e54c60dee02aeb~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" />
 
 执行完平台的model方法后返回`true`，再回到`genDirectives`方法，如果`needRuntime`为`true`，就把指令相关属性就行字符串代码拼接并最终返回。这里我们看下`genData`函数有一细节，就是函数最开始就处理指令，这是因为处理指令时候可能会在节点上新增其他一些属性，例如我们`v-model`指令会增加`props`和事件。
 
@@ -532,7 +532,7 @@ export function genComponentModel (
 
 这个方法主要在ast节点上添加`model`属性来表示指令相关数据，我们例子中执行完的结果为：
 
-<img src="http://blog.inoob.xyz/posts/a2192891/4.jpg" />
+<img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/11/10/16e54c60df5d92b3~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" />
   
 然后返回`genData`函数，这里返回的dirs为`undefined`，因为组件使用`v-model`单纯是个语法糖，不需要在运行时进行相关处理。另外，这个函数要把节点上的`model`赋值给`data`属性：
 

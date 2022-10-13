@@ -12,7 +12,7 @@
 
 在Vue的响应式原理中也做了很多优化的处理，比如对数组的响应处理，执行``watcher``时机等等，我们稍后在源码中会做分析。所以，响应原理的流程可以总结成下图：
 
-<img src="http://blog.inoob.xyz/posts/1d890dd2/1.png"/>
+<img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/11/10/16e54c1c76a20b1c~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp"/>
 
 ## Observe
 

@@ -2,11 +2,11 @@
 layout: home
 
 title: FE-Note
-titleTemplate: 前端总结与分享
+titleTemplate: 前端er的知识宝库
 
 hero:
   name: FE-Note
-  text: 前端总结与分享
+  text: 前端人的知识宝库
   image:
     src: /banner.png
     alt: banner

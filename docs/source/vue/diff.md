@@ -331,27 +331,27 @@ if (isDef(oldCh) && isDef(ch)) {
 
 第一步，oldStartIdx和newEndIdx都是A节点，在进行A节点`patch`后把移动到为处理节点的后面，也就是oldEndIdx节点的后面：
 
-<img src="https://blog.inoob.xyz/posts/17db2ff2/1.jpg" />
+<img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/11/10/16e54c44f8c64b4f~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" />
 
 第二步，发现oldStartIdx和newEndIdx都是B节点,过程和第一步一样：
 
-<img src="https://blog.inoob.xyz/posts/17db2ff2/2.jpg" />
+<img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/11/10/16e54c44f8dc93df~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" />
 
 第三步，oldEndIdx和newStartIdx都是D节点，更新后把D节点移动后未处理节点的前面，也就是oldStartIdx的前面：
 
-<img src="https://blog.inoob.xyz/posts/17db2ff2/3.jpg" />
+<img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/11/10/16e54c44f8a4b7b1~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" />
 
 第四步，oldStartIdx和newStartIdx都是C节点，不用进行移动
 
-<img src="https://blog.inoob.xyz/posts/17db2ff2/4.jpg" />
+<img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/11/10/16e54c44f8bafcd3~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" />
 
 第五步，这时候发现oldStartIdx已经大于oldEndIdx，也就是说如果新的节点还有为处理，那么都是新增的节点，对应我们的E节点。这个时候把所有未处理的节点插入到newEndIdx后面一个节点的前面，也就是把E插在B节点的前面：
 
-<img src="https://blog.inoob.xyz/posts/17db2ff2/5.jpg" />
+<img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/11/10/16e54c44f8d2d594~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" />
 
 
 ## 总结
 
 到此，结合前面的文章，我们就从源码的角度分析完Vue组件状态的改变到视图更新的全部流程，可以总结成下面一张图：
 
-<img src="https://blog.inoob.xyz/posts/17db2ff2/6.png" />
+<img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/11/10/16e54c44f8e5bf7f~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp" />

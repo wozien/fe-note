@@ -351,7 +351,7 @@ if (config.isReservedTag(tag)) {
 
 通过``new VNode()``直接返回一个vnode对象。``createComponent()``方法是创建组件节点vnode的实现，我们在之后再分析。至此。我们``vm._render()``方法就执行完了，我们也成功的获取到了el对应节点的虚拟node，我们看下vnode的结果：
 
-<img src="http://blog.inoob.xyz/posts/593587/1.jpg"/>
+<img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/11/10/16e54bff9a6ddec0~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp"/>
 
 ## vm._update()
 
@@ -664,7 +664,7 @@ export function appendChild (node: Node, child: Node) {
 
 很明显，这都是在原生操作DOM了。于是，执行完查看DOM为
 
-<img src="http://blog.inoob.xyz/posts/593587/2.jpg"/>
+<img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/11/10/16e54bfff4f384c7~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp"/>
 
 插入DOM后，在调用``removeVnodes()``方法删除旧的节点：
 
@@ -681,4 +681,4 @@ removeVnodes([oldVnode], 0, 0)
 
 可以用下图概括:
 
-<img src="http://blog.inoob.xyz/posts/593587/3.png"/>
+<img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/11/10/16e54bfeea321e0b~tplv-t2oaga2asx-zoom-in-crop-mark:3024:0:0:0.awebp"/>

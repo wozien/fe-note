@@ -18,7 +18,7 @@ const jsAdvanceBar: DefaultTheme.SidebarItem = {
   items: [
     { text: '防抖和节流', link: '/summary/js-advance/debounce-and-throttle' },
     { text: '事件循环', link: '/summary/js-advance/event-loop' },
-    { text: 'Promise', link: '/summary/js-advance/promise' },
+    { text: '实现 Promise', link: '/summary/js-advance/promise' },
     { text: '函数柯里化', link: '/summary/js-advance/curry' },
     { text: '手写函数源码', link: '/summary/js-advance/fucking-source' },
   ]
@@ -98,9 +98,9 @@ const reactSource: DefaultTheme.SidebarGroup[] = [{
 
 // webpack, vite 
 const enginerSouce: DefaultTheme.SidebarGroup[] = [{
-  text: '前端工程化',
+  text: 'Webpack',
   items: [
-    { text: 'webpack 打包原理', link: '/source/enginer/webpack' }
+    { text: 'Webpack 打包原理', link: '/source/webpack/' }
   ]
 }];
 
@@ -158,7 +158,7 @@ const sidebar: DefaultTheme.Sidebar = {
   '/summary/tools/': sidebarGroup.summary.tools,
   '/source/vue/': sidebarGroup.source.vue,
   '/source/react/': sidebarGroup.source.react,
-  '/source/enginer/': sidebarGroup.source.enginer,
+  '/source/webpack/': sidebarGroup.source.enginer,
   '/share/': sidebarGroup.share as DefaultTheme.SidebarGroup[]
 }
 
