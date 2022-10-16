@@ -1,8 +1,9 @@
 import type { DefaultTheme } from 'vitepress';
 
 //  JS 基础
-const jsBaseBar: DefaultTheme.SidebarItem = {
+const jsBaseBar: DefaultTheme.SidebarGroup = {
   text: 'JS 基础',
+  collapsible: true,
   items: [
     { text: '函数上下文', link: '/summary/js-base/function-context' },
     { text: '作用域', link: '/summary/js-base/scope' },
@@ -13,8 +14,9 @@ const jsBaseBar: DefaultTheme.SidebarItem = {
 }
 
 // JS 进阶
-const jsAdvanceBar: DefaultTheme.SidebarItem = {
+const jsAdvanceBar: DefaultTheme.SidebarGroup = {
   text: 'JS 进阶',
+  collapsible: true,
   items: [
     { text: '防抖和节流', link: '/summary/js-advance/debounce-and-throttle' },
     { text: '事件循环', link: '/summary/js-advance/event-loop' },
@@ -25,8 +27,9 @@ const jsAdvanceBar: DefaultTheme.SidebarItem = {
 }
 
 // es6+
-const es6Bar: DefaultTheme.SidebarItem = {
+const es6Bar: DefaultTheme.SidebarGroup = {
   text: 'ES6+',
+  collapsible: true,
   items: [
     { text: 'let 和 const', link: '/summary/es6/let-and-const'},
     { text: '模板字符串', link: '/summary/es6/pattern-string'},
@@ -43,8 +46,22 @@ const es6Bar: DefaultTheme.SidebarItem = {
   ]
 }
 
+// nodejs
+const nodejs: DefaultTheme.SidebarGroup = {
+  text: 'Node.js',
+  items: [
+    { text: '概述', link: '/summary/nodejs/' },
+    { text: 'http 服务', link: '/summary/nodejs/http' },
+    { text: 'path 路径解析', link: '/summary/nodejs/path' },
+    { text: 'fs 文件处理', link: '/summary/nodejs/fs' },
+    { text: 'url 模块', link: '/summary/nodejs/url' },
+    { text: 'util 工具模块', link: '/summary/nodejs/util' },
+    { text: 'child_process 子进程', link: '/summary/nodejs/child_process' },
+  ]
+}
+
 // 浏览器
-const browser: DefaultTheme.SidebarItem = {
+const browser: DefaultTheme.SidebarGroup = {
   text: '浏览器相关',
   items: [
     { text: '渲染原理', link: '/summary/browser/render'},
@@ -57,7 +74,7 @@ const browser: DefaultTheme.SidebarItem = {
 }
 
 // 工具 tool
-const toolsBar: DefaultTheme.SidebarItem = {
+const toolsBar: DefaultTheme.SidebarGroup = {
   text: '效能工具',
   items: [
     { text: 'Docker 基础', link: '/summary/tools/docker'},
@@ -66,6 +83,15 @@ const toolsBar: DefaultTheme.SidebarItem = {
     { text: '正则表达式', link: '/summary/tools/regexp'},
   ]
 }
+
+// 算法
+const algorithm: DefaultTheme.SidebarGroup = {
+  text: '数据结构与算法',
+  items: [
+    { text: '链表', link: '/summary/algorithm/link' }
+  ]
+}
+
 
 // Vue 源码
 const vueSource: DefaultTheme.SidebarGroup[] = [{
@@ -100,20 +126,24 @@ const reactSource: DefaultTheme.SidebarGroup[] = [{
 const enginerSouce: DefaultTheme.SidebarGroup[] = [{
   text: 'Webpack',
   items: [
-    { text: 'Webpack 打包原理', link: '/source/webpack/' }
+    { text: 'Webpack 打包原理', link: '/source/webpack/' },
+    { text: 'HMR 原理', link: '/source/webpack/hmr' },
+    { text: 'Plugin 插件 ', link: '/source/webpack/plugin' },
+    { text: 'Loader 加载器', link: '/source/webpack/loader' },
+  ]
+}, {
+  text: 'Vite',
+  items: [
+    { text: 'Vite 原理', link: '/source/vite/' }
   ]
 }];
 
 const share: DefaultTheme.SidebarGroup[] = [
-  { text: '面试',
-    items: [
-      { text: '面试题汇总', link: '/share/interview' }
-    ]
-  },
   {
-    text: '社区',
+    text: '分享汇总',
     items: [
-      { text: '社区汇总', link: '/share/website' },
+      { text: '高频面试题', link: '/share/interview' },
+      { text: '社区网址', link: '/share/website' },
       { text: '博客文章', link: '/share/posts' },
       { text: '电子书', link: '/share/books' },
     ]
@@ -135,6 +165,12 @@ const sidebarGroup = {
       jsAdvanceBar,
       es6Bar
     ],
+    'nodejs': [
+      nodejs
+    ],
+    'cs': [
+      algorithm
+    ],
     'browser': [
       browser
     ],
@@ -154,11 +190,14 @@ const sidebar: DefaultTheme.Sidebar = {
   '/summary/js-base/': sidebarGroup.summary.js,
   '/summary/js-advance/': sidebarGroup.summary.js,
   '/summary/es6/': sidebarGroup.summary.js,
+  '/summary/nodejs/': sidebarGroup.summary.nodejs,
   '/summary/browser/': sidebarGroup.summary.browser,
   '/summary/tools/': sidebarGroup.summary.tools,
+  '/summary/algorithm/': sidebarGroup.summary.cs,
   '/source/vue/': sidebarGroup.source.vue,
   '/source/react/': sidebarGroup.source.react,
   '/source/webpack/': sidebarGroup.source.enginer,
+  '/source/vite/': sidebarGroup.source.enginer,
   '/share/': sidebarGroup.share as DefaultTheme.SidebarGroup[]
 }
 

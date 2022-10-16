@@ -21,10 +21,10 @@ hero:
 
 features:
   - icon: 📋
-    title: 基础
+    title: 总结
     details: 总结前端，CS等基础知识
   - icon: 💪
-    title: 进阶
+    title: 源码
     details: 剖析流行类库或者框架源码
   - icon: ✨
     title: 分享

@@ -22,7 +22,7 @@ print('hello world')
 
 目标是以 `index.js` 作为入口开始打包最后生成 `bundle`， 并且能在浏览器输出 'hello world'。因为 `webpack` 整个核心流程频繁地涉及到源码文件转为 AST， 这个过程需要一些 babel 相关的工具包， 具体作用如下：
 
-```js
+```bash
  # 可以从ast利用一定的规则转成对应环境的代码
  #  比如 es6 import 转为 required
 "@babel/core": "^7.19.3"
@@ -164,7 +164,7 @@ execModule(graphs['./src/index.js'])
 
 执行会报错，显示 `require` 函数未定义， 这是肯定的。 我们可以实现一个`require` 函数， 用来获取依赖模块路径并且调用 `execModule` 函数并返回结果。
 
-```js
+```js{2-5}
 function execModule(moduleItem){
   function localRequire(filepath) {
     filepath = moduleItem.dependecies[filepath]
