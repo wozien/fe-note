@@ -88,7 +88,8 @@ const toolsBar: DefaultTheme.SidebarGroup = {
 const algorithm: DefaultTheme.SidebarGroup = {
   text: '数据结构与算法',
   items: [
-    { text: '链表', link: '/summary/algorithm/link' }
+    { text: '链表', link: '/summary/algorithm/link' },
+    { text: '数组', link: '/summary/algorithm/array' },
   ]
 }
 
